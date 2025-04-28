@@ -4,11 +4,13 @@ import './index.css';
 import App from './Components/App';
 import Lista from './Components/Lista/Lista'
 import reportWebVitals from './reportWebVitals';
+import CatalogoProdutos from './Components/CatalogoProdutos/CatalogoProdutos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Lista />
+    <CatalogoProdutos />
     <App />
   </React.StrictMode>
 );
