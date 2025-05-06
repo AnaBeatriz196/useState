@@ -1,59 +1,53 @@
 import { useState } from "react";
 
-function Formulario() {
-    const [nome, setNome] = useState('');
-        const [idade, setIdade] = useState(0);
-            const [senha, setSenha] = useState('');
-                const [confirmarsenha, setConfirmarsenha] = useState('');
-                    const [mensagem, setMensagem] = useState('');
-                        function handleSubmit(e){
-                                e.preventDefault()
-                                        setMensagem('dados enviados!')
-                                            }
+function Formulario(){
+    const [nome, setNome]= useState('');
+    const [idade, setIdade] = useState(0);
+    const [senha, setSenha] = useState('')
+    const [confirmarsenha, setConfirmarSenha] = useState('')
+    const [mensage, setMensagem] = useState()
 
-                                                return (
-                                                        <div>
-                                                                    <form onSubmit={handleSubmit}>
-                                                                                    <input
-                                                                                                        type="text"
-                                                                                                                            value={nome}
-                                                                                                                                                onChange={(e)=> setNome(e.target.value)}
-                                                                                                                                                                    
+    return(
+        <div>
+            <form>
+                Nome: <input type="text" 
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}            
+            />
+            <br />
+            Idade: <input type="number"
+            value={idade}
+            onChange={(e) => setIdade(e.target.value)}
+            />
+            <br />
+            Senha: <input type="text"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            />
+            <br />
+            Confirmar Senha: <input type="text"
+            value={confirmarsenha}
+            onChange={(e) => {
+                        setConfirmarSenha(e.target.value);
 
-                                                                                                                                                                                    />
-                                                                                                                                                                                                    <p> nome digitado: {nome}</p>
+                        if(senha == confirmarsenha){
+                            setMensagem
+                        }
+            }}
+            />
+            </form>
 
-                                                                                                                                                                                                                    <input
-                                                                                                                                                                                                                                        type="number"
-                                                                                                                                                                                                                                                            value={idade}
-                                                                                                                                                                                                                                                                                onChange={(e)=> setIdade(e.target.value)}
+            
 
-                                                                                                                                                                                                                                                                                                />
-                                                                                                                                                                                                                                                                                                                <p> Idade digitada: {idade}</p>
+            
+            <p> Nome digitado: {nome} <br />
+            Idade Digitada {idade}</p>
 
-                                                                                                                                                                                                                                                                                                                                <input
-                                                                                                                                                                                                                                                                                                                                                    type="text"
-                                                                                                                                                                                                                                                                                                                                                                        value={senha}
-                                                                                                                                                                                                                                                                                                                                                                                            onChange={(e)=> setSenha(e.target.value)}
-
-                                                                                                                                                                                                                                                                                                                                                                                                            />
-                                                                                                                                                                                                                                                                                                                                                                                                                            <input
-                                                                                                                                                                                                                                                                                                                                                                                                                                                type="text"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    value={confirmarsenha}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        onChange={(e)=> setConfirmarsenha(e.target.value)}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <button type="submit">Enviar</button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <br />
-
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </form>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p>{mensagem}</p>
+            
+        </div>
+    )
 
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    )
+}
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    export default Formulario;
+export default Formulario;
