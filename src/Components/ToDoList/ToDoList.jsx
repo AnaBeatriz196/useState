@@ -21,10 +21,10 @@ export default function ToDoList() {
     setPrioridade("Alta");
   }
 
-  function concluir(id) {
+  function alternarConclusao(id) {
     setTarefas(
       tarefas.map((t) =>
-        t.id === id ? { ...t, concluida: true } : t
+        t.id === id ? { ...t, concluida: !t.concluida } : t
       )
     );
   }
@@ -72,7 +72,9 @@ export default function ToDoList() {
         {tarefasOrdenadas.map((t) => (
           <li key={t.id}>
             {t.titulo} - {t.prioridade} - {t.concluida ? "✔️" : "❌"}{" "}
-            {!t.concluida && <button onClick={() => concluir(t.id)}>Concluir</button>}
+            <button onClick={() => alternarConclusao(t.id)}>
+              {t.concluida ? "Desconcluir" : "Concluir"}
+            </button>
           </li>
         ))}
       </ul>
